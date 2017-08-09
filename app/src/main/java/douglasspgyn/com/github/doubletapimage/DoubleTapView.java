@@ -23,6 +23,9 @@ import android.widget.RelativeLayout;
 
 public class DoubleTapView extends RelativeLayout {
 
+    private Context context;
+    private boolean doubleTapEnable = true;
+
     private View rootView;
     private ImageView animatedView;
 
@@ -71,6 +74,7 @@ public class DoubleTapView extends RelativeLayout {
     }
 
     private void init(Context context) {
+        this.context = context;
         rootView = inflate(context, R.layout.double_view, this);
         animatedView = (ImageView) rootView.findViewById(R.id.animated_view);
 
@@ -110,6 +114,20 @@ public class DoubleTapView extends RelativeLayout {
 
     public boolean hasOnDoubleTapEventListener() {
         return doubleTapEventListener != null;
+    }
+
+    public void enableDoubleTap() {
+        setDoubleTap(context);
+        doubleTapEnable = true;
+    }
+
+    public void disableDoubleTap() {
+        setOnTouchListener(null);
+        doubleTapEnable = false;
+    }
+
+    private boolean isEnabledDoubleTap() {
+        return doubleTapEnable;
     }
 
     public onDoubleTapEventListener getDoubleTapEventListener() {
