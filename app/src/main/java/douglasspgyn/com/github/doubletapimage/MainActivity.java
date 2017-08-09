@@ -11,7 +11,6 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.dt1)
     DoubleTapView doubleTapView1;
-
     @BindView(R.id.dt4)
     DoubleTapView doubleTapView4;
 
