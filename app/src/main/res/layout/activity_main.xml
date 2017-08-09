@@ -1,132 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context="douglasspgyn.com.github.doubletapimage.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/enable_callback"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:text="Enable Callback" />
 
-            <Button
-                android:id="@+id/enable_callback"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:text="Enable Callback" />
-
-            <Button
-                android:id="@+id/disable_callback"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:text="Disable Callback" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/disable_callback"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/enable_doubletap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:text="Enable DoubleTap" />
-
-            <Button
-                android:id="@+id/disable_doubletap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:text="Disable DoubleTap" />
-        </LinearLayout>
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="#ccc" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewBackgroundColor="#FF0000" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewDrawable="@drawable/ic_android" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt4"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewBackgroundColor="#AA55AA"
-            app:animatedViewDrawable="@drawable/ic_android"
-            app:animatedViewMeasure="200dp" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt5"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewBackgroundColor="#0000FF"
-            app:animatedViewDrawable="@drawable/ic_android"
-            app:animatedViewMeasure="100dp" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt6"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewBackgroundColor="#0000FF"
-            app:animatedViewMeasure="100dp" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt7"
-            android:layout_width="50dp"
-            android:layout_height="150dp"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewBackgroundColor="#00FF00"
-            app:animatedViewMeasure="100dp" />
-
-        <douglasspgyn.com.github.doubletapimage.DoubleTapView
-            android:id="@+id/dt8"
-            android:layout_width="@dimen/animatedViewMeasure"
-            android:layout_height="@dimen/animatedViewMeasure"
-            android:layout_margin="4dp"
-            android:background="#ccc"
-            app:animatedViewMeasure="100dp" />
+            android:layout_weight="1"
+            android:text="Disable Callback" />
     </LinearLayout>
-</ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/enable_doubletap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:text="Enable DoubleTap" />
+
+        <Button
+            android:id="@+id/disable_doubletap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:text="Disable DoubleTap" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:background="#ccc" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewBackgroundColor="#FF0000" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewDrawable="@drawable/ic_android" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt4"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewBackgroundColor="#AA55AA"
+                app:animatedViewDrawable="@drawable/ic_android"
+                app:animatedViewMeasure="200dp" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt5"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewBackgroundColor="#0000FF"
+                app:animatedViewDrawable="@drawable/ic_android"
+                app:animatedViewMeasure="100dp" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt6"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewBackgroundColor="#0000FF"
+                app:animatedViewMeasure="100dp" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt7"
+                android:layout_width="50dp"
+                android:layout_height="150dp"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewBackgroundColor="#00FF00"
+                app:animatedViewMeasure="100dp" />
+
+            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+                android:id="@+id/dt8"
+                android:layout_width="@dimen/animatedViewMeasure"
+                android:layout_height="@dimen/animatedViewMeasure"
+                android:layout_margin="4dp"
+                android:background="#ccc"
+                app:animatedViewMeasure="100dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
