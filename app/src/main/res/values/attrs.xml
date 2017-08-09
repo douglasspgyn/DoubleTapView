@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DoubleTapView">
+        <attr name="animatedViewMeasure" format="dimension"/>
+        <attr name="animatedViewDrawable" format="reference"/>
+        <attr name="animatedViewBackgroundColor" format="reference|color"/>
+    </declare-styleable>
+</resources>
