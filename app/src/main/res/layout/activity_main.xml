@@ -39,5 +39,24 @@
         android:background="#ccc"
         app:animatedViewBackgroundColor="#AA55AA"
         app:animatedViewDrawable="@drawable/ic_android"
+        app:animatedViewMeasure="200dp" />
+
+    <douglasspgyn.com.github.doubletapimage.DoubleTapView
+        android:id="@+id/dt5"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_margin="4dp"
+        android:background="#ccc"
+        app:animatedViewBackgroundColor="#0000FF"
+        app:animatedViewDrawable="@drawable/ic_android"
+        app:animatedViewMeasure="100dp" />
+
+    <douglasspgyn.com.github.doubletapimage.DoubleTapView
+        android:id="@+id/dt6"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_margin="4dp"
+        android:background="#ccc"
+        app:animatedViewBackgroundColor="#0000FF"
         app:animatedViewMeasure="100dp" />
 </LinearLayout>

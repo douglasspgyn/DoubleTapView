@@ -26,6 +26,8 @@ public class DoubleTapView extends RelativeLayout {
     private View rootView;
     private ImageView animatedView;
 
+    private onDoubleTapEventListener doubleTapEventListener;
+
     private String animatedViewBackgroundColor;
     private Drawable animatedViewIcon;
     private int animatedViewMeasure;
@@ -89,7 +91,7 @@ public class DoubleTapView extends RelativeLayout {
     }
 
     private void setDoubleTap(Context context) {
-        final GestureDetector gestureDetector = new GestureDetector(context, new GestureListener(context, animatedView));
+        final GestureDetector gestureDetector = new GestureDetector(context, new GestureListener(context, this, animatedView));
         setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -97,4 +99,16 @@ public class DoubleTapView extends RelativeLayout {
             }
         });
     }
+
+    public void setOnDoubleTapEventListener(onDoubleTapEventListener eventListener) {
+        doubleTapEventListener = eventListener;
+    }
+
+    public onDoubleTapEventListener getDoubleTapEventListener() {
+        return doubleTapEventListener;
+    }
+}
+
+interface onDoubleTapEventListener {
+    void onDoubleTap();
 }

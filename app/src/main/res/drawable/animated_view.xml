@@ -3,6 +3,9 @@
     <item android:id="@+id/animated_background">
         <shape android:shape="oval">
             <solid android:color="@color/colorAccent" />
+            <size
+                android:width="@dimen/animatedViewMeasure"
+                android:height="@dimen/animatedViewMeasure" />
         </shape>
     </item>
 

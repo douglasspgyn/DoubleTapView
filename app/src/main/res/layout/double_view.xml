@@ -4,8 +4,8 @@
     <ImageView
         android:id="@+id/animated_view"
         android:visibility="invisible"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/animatedViewMeasure"
+        android:layout_height="@dimen/animatedViewMeasure"
         android:layout_centerInParent="true"
         android:src="@drawable/animated_view" />
 </merge>

@@ -14,10 +14,12 @@ import android.widget.ImageView;
 class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
     private Context context;
+    private DoubleTapView doubleTapView;
     private ImageView animatedView;
 
-    GestureListener(Context context, ImageView animatedView) {
+    GestureListener(Context context, DoubleTapView doubleTapView, ImageView animatedView) {
         this.context = context;
+        this.doubleTapView = doubleTapView;
         this.animatedView = animatedView;
     }
 
@@ -30,6 +32,11 @@ class GestureListener extends GestureDetector.SimpleOnGestureListener {
     public boolean onDoubleTap(MotionEvent e) {
         Animation pulse = AnimationUtils.loadAnimation(context, R.anim.bounce_in_out);
         animatedView.startAnimation(pulse);
+
+        if (doubleTapView.getDoubleTapEventListener() != null) {
+            doubleTapView.getDoubleTapEventListener().onDoubleTap();
+        }
+
         return true;
     }
 }
