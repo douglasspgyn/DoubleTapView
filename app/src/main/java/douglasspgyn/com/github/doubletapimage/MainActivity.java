@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        doubleTapView1.setOnDoubleTapEventListener(new onDoubleTapEventListener() {
+        doubleTapView1.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventListener() {
             @Override
             public void onDoubleTap() {
                 Toast.makeText(MainActivity.this, "GG 1", Toast.LENGTH_SHORT).show();
             }
         });
 
-        doubleTapView4.setOnDoubleTapEventListener(new onDoubleTapEventListener() {
+        doubleTapView4.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventListener() {
             @Override
             public void onDoubleTap() {
                 Toast.makeText(MainActivity.this, "GG 4", Toast.LENGTH_SHORT).show();

@@ -3,6 +3,6 @@
     <declare-styleable name="DoubleTapView">
         <attr name="animatedViewMeasure" format="dimension"/>
         <attr name="animatedViewDrawable" format="reference"/>
-        <attr name="animatedViewBackgroundColor" format="reference|color"/>
+        <attr name="animatedViewBackgroundColor" format="color"/>
     </declare-styleable>
 </resources>

@@ -104,11 +104,19 @@ public class DoubleTapView extends RelativeLayout {
         doubleTapEventListener = eventListener;
     }
 
+    public void removeOnDoubleTapEventListener() {
+        doubleTapEventListener = null;
+    }
+
+    public boolean hasOnDoubleTapEventListener() {
+        return doubleTapEventListener != null;
+    }
+
     public onDoubleTapEventListener getDoubleTapEventListener() {
         return doubleTapEventListener;
     }
-}
 
-interface onDoubleTapEventListener {
-    void onDoubleTap();
+    interface onDoubleTapEventListener {
+        void onDoubleTap();
+    }
 }
