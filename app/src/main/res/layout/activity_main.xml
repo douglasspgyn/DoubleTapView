@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="douglasspgyn.com.github.doubletapimage.sample.MainActivity">
+    tools:context="douglasspgyn.com.github.doubletapview.sample.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,14 +66,14 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="4dp"
                 android:background="#ccc" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -81,7 +81,7 @@
                 android:background="#ccc"
                 app:animatedViewBackgroundColor="#FF0000" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt3"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
@@ -89,7 +89,7 @@
                 android:background="#ccc"
                 app:animatedViewDrawable="@drawable/ic_android" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt4"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
@@ -99,14 +99,14 @@
                 app:animatedViewDrawable="@drawable/ic_android"
                 app:animatedViewMeasure="200dp" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt5"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_margin="4dp"
                 android:background="#ccc" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt6"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
@@ -115,7 +115,7 @@
                 app:animatedViewBackgroundColor="#0000FF"
                 app:animatedViewMeasure="100dp" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt7"
                 android:layout_width="50dp"
                 android:layout_height="150dp"
@@ -124,7 +124,7 @@
                 app:animatedViewBackgroundColor="#00FF00"
                 app:animatedViewMeasure="100dp" />
 
-            <douglasspgyn.com.github.doubletapimage.DoubleTapView
+            <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:id="@+id/dt8"
                 android:layout_width="@dimen/animatedViewMeasure"
                 android:layout_height="@dimen/animatedViewMeasure"

@@ -16,7 +16,7 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
 
 ### XML Example:
 ```
-<douglasspgyn.com.github.doubletapimage.DoubleTapView
+<douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:background="#ccc"

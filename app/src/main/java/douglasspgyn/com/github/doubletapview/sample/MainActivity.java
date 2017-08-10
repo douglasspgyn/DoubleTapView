@@ -1,4 +1,4 @@
-package douglasspgyn.com.github.doubletapimage.sample;
+package douglasspgyn.com.github.doubletapview.sample;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import douglasspgyn.com.github.doubletapimage.DoubleTapView;
-import douglasspgyn.com.github.doubletapimage.R;
+import douglasspgyn.com.github.doubletapview.DoubleTapView;
+import douglasspgyn.com.github.doubletapview.R;
 
 public class MainActivity extends AppCompatActivity {
 

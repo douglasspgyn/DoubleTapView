@@ -1,4 +1,4 @@
-package douglasspgyn.com.github.doubletapimage;
+package douglasspgyn.com.github.doubletapview;
 
 import android.content.Context;
 import android.view.GestureDetector;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="douglasspgyn.com.github.doubletapimage">
+    package="douglasspgyn.com.github.doubletapview">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sample.MainActivity">
+        <activity android:name="douglasspgyn.com.github.doubletapview.sample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

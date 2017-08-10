@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "douglasspgyn.com.github.doubletapimage"
+        applicationId "douglasspgyn.com.github.doubletapview"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
