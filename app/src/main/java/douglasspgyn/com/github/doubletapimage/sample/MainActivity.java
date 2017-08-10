@@ -1,42 +1,30 @@
-package douglasspgyn.com.github.doubletapimage;
+package douglasspgyn.com.github.doubletapimage.sample;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import douglasspgyn.com.github.doubletapimage.DoubleTapView;
+import douglasspgyn.com.github.doubletapimage.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.enable_callback)
-    Button enableCallbackButton;
-    @BindView(R.id.disable_callback)
-    Button disableCallbackButton;
-    @BindView(R.id.enable_doubletap)
-    Button enableDoubleTapButton;
-    @BindView(R.id.disable_doubletap)
-    Button disableDoubleTapButton;
+    private Button enableCallbackButton;
+    private Button disableCallbackButton;
+    private Button enableDoubleTapButton;
+    private Button disableDoubleTapButton;
 
-    @BindView(R.id.dt1)
-    DoubleTapView doubleTapView1;
-    @BindView(R.id.dt2)
-    DoubleTapView doubleTapView2;
-    @BindView(R.id.dt3)
-    DoubleTapView doubleTapView3;
-    @BindView(R.id.dt4)
-    DoubleTapView doubleTapView4;
-    @BindView(R.id.dt5)
-    DoubleTapView doubleTapView5;
-    @BindView(R.id.dt6)
-    DoubleTapView doubleTapView6;
-    @BindView(R.id.dt7)
-    DoubleTapView doubleTapView7;
-    @BindView(R.id.dt8)
-    DoubleTapView doubleTapView8;
+    private DoubleTapView doubleTapView1;
+    private DoubleTapView doubleTapView2;
+    private DoubleTapView doubleTapView3;
+    private DoubleTapView doubleTapView4;
+    private DoubleTapView doubleTapView5;
+    private DoubleTapView doubleTapView6;
+    private DoubleTapView doubleTapView7;
+    private DoubleTapView doubleTapView8;
 
     private int enabledColor;
     private int disableColor;
@@ -45,8 +33,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
+        bindView();
+        setColors();
+        setListeners();
+    }
+
+    private void bindView() {
+        enableCallbackButton = (Button) findViewById(R.id.enable_callback);
+        disableCallbackButton = (Button) findViewById(R.id.disable_callback);
+        enableDoubleTapButton = (Button) findViewById(R.id.enable_doubletap);
+        disableDoubleTapButton = (Button) findViewById(R.id.disable_doubletap);
+
+        doubleTapView1 = (DoubleTapView) findViewById(R.id.dt1);
+        doubleTapView2 = (DoubleTapView) findViewById(R.id.dt2);
+        doubleTapView3 = (DoubleTapView) findViewById(R.id.dt3);
+        doubleTapView4 = (DoubleTapView) findViewById(R.id.dt4);
+        doubleTapView5 = (DoubleTapView) findViewById(R.id.dt5);
+        doubleTapView6 = (DoubleTapView) findViewById(R.id.dt6);
+        doubleTapView7 = (DoubleTapView) findViewById(R.id.dt7);
+        doubleTapView8 = (DoubleTapView) findViewById(R.id.dt8);
+    }
+
+    private void setColors() {
         enabledColor = Color.parseColor("#888888");
         disableColor = Color.parseColor("#DDDDDD");
 
@@ -56,8 +65,37 @@ public class MainActivity extends AppCompatActivity {
         disableDoubleTapButton.setBackgroundColor(disableColor);
     }
 
-    @OnClick(R.id.enable_callback)
-    public void enableCallback() {
+    private void setListeners() {
+        enableCallbackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enableCallback();
+            }
+        });
+
+        disableCallbackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                disableCallback();
+            }
+        });
+
+        enableDoubleTapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enableDoubleTap();
+            }
+        });
+
+        disableDoubleTapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                disableDoubleTap();
+            }
+        });
+    }
+
+    private void enableCallback() {
         enableCallbackButton.setBackgroundColor(enabledColor);
         disableCallbackButton.setBackgroundColor(disableColor);
 
@@ -118,8 +156,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.disable_callback)
-    public void disableCallback() {
+    private void disableCallback() {
         enableCallbackButton.setBackgroundColor(disableColor);
         disableCallbackButton.setBackgroundColor(enabledColor);
 
@@ -133,8 +170,7 @@ public class MainActivity extends AppCompatActivity {
         doubleTapView8.removeOnDoubleTapEventListener();
     }
 
-    @OnClick(R.id.enable_doubletap)
-    public void enableDoubleTap() {
+    private void enableDoubleTap() {
         enableDoubleTapButton.setBackgroundColor(enabledColor);
         disableDoubleTapButton.setBackgroundColor(disableColor);
 
@@ -148,8 +184,7 @@ public class MainActivity extends AppCompatActivity {
         doubleTapView8.enableDoubleTap();
     }
 
-    @OnClick(R.id.disable_doubletap)
-    public void disableDoubleTap() {
+    private void disableDoubleTap() {
         enableDoubleTapButton.setBackgroundColor(disableColor);
         disableDoubleTapButton.setBackgroundColor(enabledColor);
 

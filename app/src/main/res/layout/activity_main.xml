@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="douglasspgyn.com.github.doubletapimage.MainActivity">
+    tools:context="douglasspgyn.com.github.doubletapimage.sample.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

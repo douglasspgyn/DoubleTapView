@@ -106,7 +106,7 @@ public class DoubleTapView extends RelativeLayout {
         return doubleTapEnable;
     }
 
-    interface onDoubleTapEventListener {
+    public interface onDoubleTapEventListener {
         void onDoubleTap();
     }
 }
