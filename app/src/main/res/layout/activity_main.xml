@@ -104,10 +104,7 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_margin="4dp"
-                android:background="#ccc"
-                app:animatedViewBackgroundColor="#0000FF"
-                app:animatedViewDrawable="@drawable/ic_android"
-                app:animatedViewMeasure="100dp" />
+                android:background="#ccc" />
 
             <douglasspgyn.com.github.doubletapimage.DoubleTapView
                 android:id="@+id/dt6"

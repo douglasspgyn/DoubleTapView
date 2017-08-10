@@ -37,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
         bindView();
         setColors();
         setListeners();
+
+        doubleTapView5.setAnimatedViewBackgroundColor("#3F51B5");
+        //doubleTapView5.setAnimatedViewBackgroundColor(R.color.colorPrimary);
+        doubleTapView5.setAnimatedViewDrawable(R.drawable.ic_android);
+        //doubleTapView5.setAnimatedViewDrawable(getResources().getDrawable(R.drawable.ic_android));
+        //doubleTapView5.setAnimatedViewDrawable(ContextCompat.getDrawable(this, R.drawable.ic_android));
+        doubleTapView5.setAnimatedViewMeasure(100);
     }
 
     private void bindView() {
