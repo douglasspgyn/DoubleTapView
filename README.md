@@ -2,7 +2,30 @@
 
 A custom view with some cool animation when double tap it with an easy callback implementation.
 
-For now you have a listener, enable and disable doubletap and can change the animated view background color, drawable and size in XML.
+For now you have a listener, enable and disable doubletap and can change the animated view background color, drawable and size.
+
+### XML:
+```
+<douglasspgyn.com.github.doubletapview.DoubleTapView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="#ccc"
+                app:animatedViewBackgroundColor="#AA55AA"
+                app:animatedViewDrawable="@drawable/ic_android"
+                app:animatedViewMeasure="100dp" />
+```
+
+### Programmatically Changes:
+```
+doubleTapView.setAnimatedViewBackgroundColor("#3F51B5");
+doubleTapView.setAnimatedViewBackgroundColor(R.color.colorPrimary);
+
+doubleTapView.setAnimatedViewDrawable(R.drawable.ic_android);
+doubleTapView.setAnimatedViewDrawable(getResources().getDrawable(R.drawable.ic_android));
+doubleTapView.setAnimatedViewDrawable(ContextCompat.getDrawable(this, R.drawable.ic_android));
+
+doubleTapView.setAnimatedViewMeasure(100);
+```
 
 ### Callback Example:
 ```
@@ -14,15 +37,4 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
         });
 ```
 
-### XML Example:
-```
-<douglasspgyn.com.github.doubletapview.DoubleTapView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="#ccc"
-                app:animatedViewBackgroundColor="#AA55AA"
-                app:animatedViewDrawable="@drawable/ic_android"
-                app:animatedViewMeasure="100dp" />
-```
-
-###### I'm trying to improve it with custom animation, custom animated background shape and programmatically sets.
+###### I'm trying to improve it with custom animation and custom animated background shape.
