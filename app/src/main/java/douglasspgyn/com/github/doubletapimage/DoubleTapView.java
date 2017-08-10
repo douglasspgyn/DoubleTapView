@@ -55,7 +55,7 @@ public class DoubleTapView extends RelativeLayout {
         animatedView = (ImageView) rootView.findViewById(R.id.animated_view);
 
         setAnimatedView(context);
-        setDoubleTap(context);
+        enableDoubleTap();
     }
 
     private void setAnimatedView(Context context) {
@@ -68,16 +68,6 @@ public class DoubleTapView extends RelativeLayout {
         animatedView.setImageDrawable(layerDrawable);
 
         animatedView.getLayoutParams().height = animatedView.getLayoutParams().width = animatedViewMeasure;
-    }
-
-    private void setDoubleTap(Context context) {
-        final GestureDetector gestureDetector = new GestureDetector(context, new GestureListener(context, this, animatedView));
-        setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return gestureDetector.onTouchEvent(motionEvent);
-            }
-        });
     }
 
     public void setOnDoubleTapEventListener(onDoubleTapEventListener eventListener) {
@@ -104,6 +94,20 @@ public class DoubleTapView extends RelativeLayout {
 
     private boolean isDoubleTapEnable() {
         return doubleTapEnable;
+    }
+
+    private void setDoubleTap(Context context) {
+        final GestureDetector gestureDetector = new GestureDetector(context, new GestureListener(context, this));
+        setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return gestureDetector.onTouchEvent(motionEvent);
+            }
+        });
+    }
+
+    public ImageView getAnimatedView() {
+        return animatedView;
     }
 
     public interface onDoubleTapEventListener {
