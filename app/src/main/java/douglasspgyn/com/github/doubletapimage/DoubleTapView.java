@@ -29,7 +29,7 @@ public class DoubleTapView extends RelativeLayout {
     private ImageView animatedView;
 
     private String animatedViewBackgroundColor;
-    private Drawable animatedViewIcon;
+    private Drawable animatedViewDrawable;
     private int animatedViewMeasure;
 
     public DoubleTapView(Context context, AttributeSet attrs) {
@@ -41,7 +41,7 @@ public class DoubleTapView extends RelativeLayout {
     private void getTypedArray(TypedArray typedArray) {
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, getResources().getDisplayMetrics());
         animatedViewBackgroundColor = typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) != null ? typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) : "#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorAccent));
-        animatedViewIcon = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) : ContextCompat.getDrawable(context, R.drawable.transparent_view);
+        animatedViewDrawable = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) : ContextCompat.getDrawable(context, R.drawable.transparent_view);
         animatedViewMeasure = (int) typedArray.getDimension(R.styleable.DoubleTapView_animatedViewMeasure, px);
 
         typedArray.recycle();
@@ -64,7 +64,7 @@ public class DoubleTapView extends RelativeLayout {
         GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.animated_background);
         gradientDrawable.setColor(Color.parseColor(animatedViewBackgroundColor));
 
-        layerDrawable.setDrawableByLayerId(R.id.animated_drawable, animatedViewIcon);
+        layerDrawable.setDrawableByLayerId(R.id.animated_drawable, animatedViewDrawable);
         animatedView.setImageDrawable(layerDrawable);
 
         animatedView.getLayoutParams().height = animatedView.getLayoutParams().width = animatedViewMeasure;
@@ -108,6 +108,29 @@ public class DoubleTapView extends RelativeLayout {
 
     public ImageView getAnimatedView() {
         return animatedView;
+    }
+
+    public DoubleTapView setAnimatedBackgroundColor(int color){
+        animatedViewBackgroundColor = "#" + Integer.toHexString(ContextCompat.getColor(context, color));
+        setAnimatedView(context);
+        return this;
+    }
+
+    public DoubleTapView setAnimatedDrawable(int drawable){
+        setAnimatedDrawable(ContextCompat.getDrawable(context, drawable));
+        return this;
+    }
+
+    public DoubleTapView setAnimatedDrawable(Drawable drawable){
+        animatedViewDrawable = drawable != null ? drawable : ContextCompat.getDrawable(context, R.drawable.transparent_view);
+        setAnimatedView(context);
+        return this;
+    }
+
+    public DoubleTapView setAnimatedMeasure(int px){
+        animatedViewMeasure = px;
+        setAnimatedView(context);
+        return this;
     }
 
     public interface onDoubleTapEventListener {
