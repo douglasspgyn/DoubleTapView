@@ -26,7 +26,7 @@ public class DoubleTapView extends RelativeLayout {
 
     private Context context;
     private onDoubleTapEventListener doubleTapEventListener;
-    private boolean doubleTapEnable = true;
+    private boolean doubleTapEnabled = true;
 
     private View rootView;
     private ImageView animatedView;
@@ -122,7 +122,7 @@ public class DoubleTapView extends RelativeLayout {
      */
     public void enableDoubleTap() {
         setDoubleTap(context);
-        doubleTapEnable = true;
+        doubleTapEnabled = true;
     }
 
     /**
@@ -131,7 +131,7 @@ public class DoubleTapView extends RelativeLayout {
      */
     public void disableDoubleTap() {
         setOnTouchListener(null);
-        doubleTapEnable = false;
+        doubleTapEnabled = false;
     }
 
     /**
@@ -139,8 +139,8 @@ public class DoubleTapView extends RelativeLayout {
      *
      * @return double tap is enable
      */
-    public boolean isDoubleTapEnable() {
-        return doubleTapEnable;
+    public boolean isDoubleTapEnabled() {
+        return doubleTapEnabled;
     }
 
     /**
