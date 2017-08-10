@@ -139,7 +139,7 @@ public class DoubleTapView extends RelativeLayout {
      *
      * @return double tap is enable
      */
-    private boolean isDoubleTapEnable() {
+    public boolean isDoubleTapEnable() {
         return doubleTapEnable;
     }
 

@@ -1,11 +1,11 @@
 # Double Tap View
 
-A custom view with some cool animation when double tap it with an easy callback implementation.
+A custom view with some cool animation when double tap it and an easy callback implementation.
 
-For now you have a listener, enable and disable doubletap and can change the animated view background color, drawable and size.
+For now you have a listener, enable and disable double tap and can change the animated view background color, drawable and size.
 
 ### XML:
-```
+```xml
 <douglasspgyn.com.github.doubletapview.DoubleTapView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
@@ -15,8 +15,8 @@ For now you have a listener, enable and disable doubletap and can change the ani
                 app:animatedViewMeasure="100dp" />
 ```
 
-### Programmatically Changes:
-```
+### Programmatically:
+```java
 doubleTapView.setAnimatedViewBackgroundColor("#3F51B5");
 doubleTapView.setAnimatedViewBackgroundColor(R.color.colorPrimary);
 
@@ -28,7 +28,7 @@ doubleTapView.setAnimatedViewMeasure(100);
 ```
 
 ### Callback Example:
-```
+```java
 doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventListener() {
             @Override
             public void onDoubleTap() {
