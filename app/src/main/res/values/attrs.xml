@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="DoubleTapView">
+        <attr name="backgroundScaleType" format="enum">
+            <enum name="center" value="0"/>
+            <enum name="centerCrop" value="1"/>
+            <enum name="centerInside" value="2"/>
+            <enum name="fitCenter" value="3"/>
+            <enum name="fitEnd" value="4"/>
+            <enum name="firStart" value="5"/>
+            <enum name="fitXY" value="6"/>
+            <enum name="matrix" value="7"/>
+        </attr>
         <attr name="animatedViewMeasure" format="dimension"/>
         <attr name="animatedViewDrawable" format="reference"/>
         <attr name="animatedViewBackgroundColor" format="color"/>

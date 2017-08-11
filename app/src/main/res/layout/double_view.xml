@@ -2,6 +2,11 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
         android:id="@+id/animated_view"
         android:visibility="invisible"
         android:layout_width="@dimen/animatedViewMeasure"
