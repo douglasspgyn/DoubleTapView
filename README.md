@@ -1,4 +1,6 @@
 # Double Tap View
+[![GitHub version](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView.svg)](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView)
+[![JitPack version](https://jitpack.io/v/douglasspgyn/DoubleTapView.svg)](https://jitpack.io/#douglasspgyn/DoubleTapView)
 
 A custom view with some cool animation when double tap it and an easy callback implementation.
 
@@ -37,9 +39,9 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
         });
 ```
 
-###### I'm trying to improve it with custom animation and custom animated background shape.
+You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample).
 
-## How to user
+## How to use
 
 Add maven jitpack.io on Project Grable:
 ```xml
@@ -54,6 +56,8 @@ and de lib dependence on Module Gradle:
 
 ```xml
  dependencies {
-    compile 'com.github.douglasspgyn:DoubleTapView:0.1.0'
+    compile 'com.github.douglasspgyn:DoubleTapView:0.1.1'
  }
 ```
+
+###### I'm trying to improve it with custom animation and custom animated background shape.
