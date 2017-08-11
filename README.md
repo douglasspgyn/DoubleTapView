@@ -38,3 +38,22 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
 ```
 
 ###### I'm trying to improve it with custom animation and custom animated background shape.
+
+## How to user
+
+Add maven jitpack.io on Project Grable:
+```xml
+ allprojects {
+    repositories {
+      maven { url 'https://jitpack.io' }
+    }
+ }
+```
+
+and de lib dependence on Module Gradle:
+
+```xml
+ dependencies {
+    compile 'com.github.douglasspgyn:DoubleTapView:0.1.0'
+ }
+```
