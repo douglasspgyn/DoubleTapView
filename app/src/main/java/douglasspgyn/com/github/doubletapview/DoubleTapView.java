@@ -3,14 +3,7 @@ package douglasspgyn.com.github.doubletapview;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.AnimRes;
@@ -40,7 +33,6 @@ public class DoubleTapView extends RelativeLayout {
     private ImageView background;
     private ImageView animatedView;
 
-    private int px;
     private int backgroundScaleType;
     private Drawable animatedViewBackground;
     private String animatedViewBackgroundColor;
@@ -80,13 +72,12 @@ public class DoubleTapView extends RelativeLayout {
      * @param typedArray array containing the style attributes
      */
     private void getTypedArray(TypedArray typedArray) {
-        px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, getResources().getDisplayMetrics());
         backgroundScaleType = typedArray.getInt(R.styleable.DoubleTapView_backgroundScaleType, 3);
+        animatedViewAnimation = typedArray.getResourceId(R.styleable.DoubleTapView_animatedViewAnimation, R.anim.bounce_in_out);
         animatedViewBackground = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) : ContextCompat.getDrawable(context, R.drawable.background_view);
         animatedViewBackgroundColor = typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) != null ? typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) : "#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorAccent));
         animatedViewDrawable = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) : ContextCompat.getDrawable(context, R.drawable.transparent_view);
-        animatedViewMeasure = (int) typedArray.getDimension(R.styleable.DoubleTapView_animatedViewMeasure, px);
-        animatedViewAnimation = typedArray.getResourceId(R.styleable.DoubleTapView_animatedViewAnimation, R.anim.bounce_in_out);
+        animatedViewMeasure = (int) typedArray.getDimension(R.styleable.DoubleTapView_animatedViewMeasure, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, getResources().getDisplayMetrics()));
 
         typedArray.recycle();
     }
@@ -109,29 +100,13 @@ public class DoubleTapView extends RelativeLayout {
 
         Drawable[] drawables = new Drawable[]{backgroundDrawable, iconDrawable};
 
-        int iconMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
+        int drawableMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
-        layerDrawable.setLayerInset(1, iconMargin, iconMargin, iconMargin, iconMargin);
+        layerDrawable.setLayerInset(1, drawableMargin, drawableMargin, drawableMargin, drawableMargin);
 
         animatedView.setImageDrawable(layerDrawable);
 
         animatedView.getLayoutParams().height = animatedView.getLayoutParams().width = animatedViewMeasure;
-    }
-
-    public static Drawable changeDrawableColor(int drawableRes, int colorRes, Context context) {
-        //Convert drawable res to bitmap
-        final Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), drawableRes);
-        final Bitmap resultBitmap = Bitmap.createBitmap(bitmap, 0, 0,
-                bitmap.getWidth() - 1, bitmap.getHeight() - 1);
-        final Paint p = new Paint();
-        final Canvas canvas = new Canvas(resultBitmap);
-        canvas.drawBitmap(resultBitmap, 0, 0, p);
-
-        //Create new drawable based on bitmap
-        final Drawable drawable = new BitmapDrawable(context.getResources(), resultBitmap);
-        drawable.setColorFilter(new
-                PorterDuffColorFilter(context.getResources().getColor(colorRes), PorterDuff.Mode.MULTIPLY));
-        return drawable;
     }
 
     /**
@@ -203,26 +178,7 @@ public class DoubleTapView extends RelativeLayout {
     }
 
     /**
-     * Getter used on GestureListener to animate
-     *
-     * @return the image view that will be animated
-     */
-    protected ImageView getAnimatedView() {
-        return animatedView;
-    }
-
-
-    /**
-     * Getter used on GestureListener to get animation
-     *
-     * @return the animation that will animate
-     */
-    protected int getAnimatedViewAnimation() {
-        return animatedViewAnimation;
-    }
-
-    /**
-     * Getter used to change the Double Tap background
+     * Getter used to change the double tap background
      *
      * @return the background image view
      */
@@ -240,7 +196,7 @@ public class DoubleTapView extends RelativeLayout {
         try {
             setAnimatedViewBackground(ContextCompat.getDrawable(context, drawable));
         } catch (Resources.NotFoundException rnf) {
-            Log.d("setAnimatedDrawable", rnf.getMessage());
+            Log.d("setAnimatedBackground", rnf.getMessage());
         }
         return this;
     }
@@ -319,7 +275,6 @@ public class DoubleTapView extends RelativeLayout {
      * @return current instance of the view
      */
     public DoubleTapView setAnimatedViewMeasure(int px) {
-        this.px = px;
         animatedViewMeasure = px;
         setAnimatedView();
         return this;
@@ -335,6 +290,25 @@ public class DoubleTapView extends RelativeLayout {
     public DoubleTapView setAnimatedViewAnimation(@AnimRes int animation) {
         this.animatedViewAnimation = animation;
         return this;
+    }
+
+    /**
+     * Getter used on GestureListener to get the image view that will be animated
+     *
+     * @return the image view that will be animated
+     */
+    protected ImageView getAnimatedView() {
+        return animatedView;
+    }
+
+
+    /**
+     * Getter used on GestureListener to get animation
+     *
+     * @return the animation that will animate
+     */
+    protected int getAnimatedViewAnimation() {
+        return animatedViewAnimation;
     }
 
     /**
