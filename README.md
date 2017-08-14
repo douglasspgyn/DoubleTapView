@@ -2,9 +2,9 @@
 [![GitHub version](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView.svg)](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView)
 [![JitPack version](https://jitpack.io/v/douglasspgyn/DoubleTapView.svg)](https://jitpack.io/#douglasspgyn/DoubleTapView)
 
-A custom view with some cool animation when double tap it and a simple listener.
+A fully customizable view with a cool animation when double tap it and a simple listener.
 
-You have a listener, enable and disable double tap and can change the animated view animation, background shape, background color, drawable and size.
+You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample) and learn more on the [Wiki](https://github.com/douglasspgyn/DoubleTapView/wiki).
 
 ![](https://media.giphy.com/media/l41JFwECYpeyPknm0/giphy.gif) 
 
@@ -49,16 +49,14 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
             }
         });
         
-
-doubleTapView.getDoubleTapEventListener();
 doubleTapView.removeOnDoubleTapEventListener();
+doubleTapView.getDoubleTapEventListener();
 ```
 
-### Work with image libraries (like Picasso)
+### Works with image libraries (like Picasso)
 ```java
 Picasso.with(this).load("http://i.imgur.com/DvpvklR.png").into(doubleTapView.getBackgroundImageView());
 ```
-You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample) and learn more on the [Wiki](https://github.com/douglasspgyn/DoubleTapView/wiki).
 
 ## Add to your project:
 
