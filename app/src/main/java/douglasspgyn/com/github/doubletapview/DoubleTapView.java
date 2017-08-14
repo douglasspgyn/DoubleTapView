@@ -3,13 +3,20 @@ package douglasspgyn.com.github.doubletapview;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.AnimRes;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -35,6 +42,7 @@ public class DoubleTapView extends RelativeLayout {
 
     private int px;
     private int backgroundScaleType;
+    private Drawable animatedViewBackground;
     private String animatedViewBackgroundColor;
     private Drawable animatedViewDrawable;
     private int animatedViewMeasure;
@@ -74,6 +82,7 @@ public class DoubleTapView extends RelativeLayout {
     private void getTypedArray(TypedArray typedArray) {
         px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, getResources().getDisplayMetrics());
         backgroundScaleType = typedArray.getInt(R.styleable.DoubleTapView_backgroundScaleType, 3);
+        animatedViewBackground = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) : ContextCompat.getDrawable(context, R.drawable.background_view);
         animatedViewBackgroundColor = typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) != null ? typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) : "#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorAccent));
         animatedViewDrawable = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) : ContextCompat.getDrawable(context, R.drawable.transparent_view);
         animatedViewMeasure = (int) typedArray.getDimension(R.styleable.DoubleTapView_animatedViewMeasure, px);
@@ -93,15 +102,36 @@ public class DoubleTapView extends RelativeLayout {
      * Set the animated view attributes
      */
     private void setAnimatedView() {
-        LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(context, R.drawable.animated_view);
+        Drawable backgroundDrawable = DrawableCompat.wrap(animatedViewBackground);
+        DrawableCompat.setTint(backgroundDrawable.mutate(), Color.parseColor(animatedViewBackgroundColor));
 
-        GradientDrawable gradientDrawable = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.animated_background);
-        gradientDrawable.setColor(Color.parseColor(animatedViewBackgroundColor));
+        Drawable iconDrawable = animatedViewDrawable;
 
-        layerDrawable.setDrawableByLayerId(R.id.animated_drawable, animatedViewDrawable);
+        Drawable[] drawables = new Drawable[]{backgroundDrawable, iconDrawable};
+
+        int iconMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
+        LayerDrawable layerDrawable = new LayerDrawable(drawables);
+        layerDrawable.setLayerInset(1, iconMargin, iconMargin, iconMargin, iconMargin);
+
         animatedView.setImageDrawable(layerDrawable);
 
         animatedView.getLayoutParams().height = animatedView.getLayoutParams().width = animatedViewMeasure;
+    }
+
+    public static Drawable changeDrawableColor(int drawableRes, int colorRes, Context context) {
+        //Convert drawable res to bitmap
+        final Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), drawableRes);
+        final Bitmap resultBitmap = Bitmap.createBitmap(bitmap, 0, 0,
+                bitmap.getWidth() - 1, bitmap.getHeight() - 1);
+        final Paint p = new Paint();
+        final Canvas canvas = new Canvas(resultBitmap);
+        canvas.drawBitmap(resultBitmap, 0, 0, p);
+
+        //Create new drawable based on bitmap
+        final Drawable drawable = new BitmapDrawable(context.getResources(), resultBitmap);
+        drawable.setColorFilter(new
+                PorterDuffColorFilter(context.getResources().getColor(colorRes), PorterDuff.Mode.MULTIPLY));
+        return drawable;
     }
 
     /**
@@ -198,6 +228,33 @@ public class DoubleTapView extends RelativeLayout {
      */
     public ImageView getBackgroundImageView() {
         return background;
+    }
+
+    /**
+     * Set the animated view background drawable
+     *
+     * @param drawable animated view background drawable
+     * @return current instance of the view
+     */
+    public DoubleTapView setAnimatedViewBackground(int drawable) {
+        try {
+            setAnimatedViewBackground(ContextCompat.getDrawable(context, drawable));
+        } catch (Resources.NotFoundException rnf) {
+            Log.d("setAnimatedDrawable", rnf.getMessage());
+        }
+        return this;
+    }
+
+    /**
+     * Set the animated view background drawable
+     *
+     * @param drawable animated view background drawable
+     * @return current instance of the view
+     */
+    public DoubleTapView setAnimatedViewBackground(Drawable drawable) {
+        animatedViewBackground = drawable != null ? drawable : ContextCompat.getDrawable(context, R.drawable.background_view);
+        setAnimatedView();
+        return this;
     }
 
     /**

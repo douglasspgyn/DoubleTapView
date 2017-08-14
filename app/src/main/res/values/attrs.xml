@@ -11,9 +11,10 @@
             <enum name="fitXY" value="6"/>
             <enum name="matrix" value="7"/>
         </attr>
-        <attr name="animatedViewMeasure" format="dimension"/>
-        <attr name="animatedViewDrawable" format="reference"/>
-        <attr name="animatedViewBackgroundColor" format="color"/>
         <attr name="animatedViewAnimation" format="reference"/>
+        <attr name="animatedViewBackground" format="reference"/>
+        <attr name="animatedViewBackgroundColor" format="color"/>
+        <attr name="animatedViewDrawable" format="reference"/>
+        <attr name="animatedViewMeasure" format="dimension"/>
     </declare-styleable>
 </resources>
