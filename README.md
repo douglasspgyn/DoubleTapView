@@ -41,9 +41,13 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
         });
 ```
 
+### Work with image libraries (like Picasso)
+```java
+Picasso.with(this).load("http://i.imgur.com/DvpvklR.png").into(doubleTapView.getBackgroundImageView());
+```
 You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample).
 
-## How to use
+## Add to your project:
 
 Add maven jitpack.io on Project Grable:
 ```xml
@@ -58,7 +62,7 @@ and de lib dependence on Module Gradle:
 
 ```xml
  dependencies {
-    compile 'com.github.douglasspgyn:DoubleTapView:0.1.1'
+    compile 'com.github.douglasspgyn:DoubleTapView:0.2.0'
  }
 ```
 
