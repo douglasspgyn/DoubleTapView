@@ -2,9 +2,9 @@
 [![GitHub version](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView.svg)](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView)
 [![JitPack version](https://jitpack.io/v/douglasspgyn/DoubleTapView.svg)](https://jitpack.io/#douglasspgyn/DoubleTapView)
 
-A custom view with some cool animation when double tap it and an easy callback implementation.
+A custom view with some cool animation when double tap it and a simple listener.
 
-You have a listener, enable and disable double tap and can change the animated view animation, background shape, background color, drawable, size.
+You have a listener, enable and disable double tap and can change the animated view animation, background shape, background color, drawable and size.
 
 ![](https://media.giphy.com/media/l41JFwECYpeyPknm0/giphy.gif) 
 
@@ -28,15 +28,10 @@ You have a listener, enable and disable double tap and can change the animated v
 doubleTapView.setAnimatedViewAnimation(R.anim.bounce_in_out);
 
 doubleTapView.setAnimatedViewBackground(R.drawable.background_view);
-doubleTapView.setAnimatedViewDrawable(getResources().getDrawable(R.drawable.background_view));
-doubleTapView.setAnimatedViewDrawable(ContextCompat.getDrawable(this, R.drawable.background_view));
 
-doubleTapView.setAnimatedViewBackgroundColor("#FF4081");
 doubleTapView.setAnimatedViewBackgroundColor(R.color.colorAccent);
 
 doubleTapView.setAnimatedViewDrawable(R.drawable.ic_android);
-doubleTapView.setAnimatedViewDrawable(getResources().getDrawable(R.drawable.ic_android));
-doubleTapView.setAnimatedViewDrawable(ContextCompat.getDrawable(this, R.drawable.ic_android));
 
 doubleTapView.setAnimatedViewMeasure(100);
 
@@ -45,7 +40,7 @@ doubleTapView.disableDoubleTap();
 doubleTapView.isDoubleTapEnabled()
 ```
 
-### Callback:
+### Listener:
 ```java
 doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventListener() {
             @Override
@@ -67,7 +62,7 @@ You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapVie
 
 ## Add to your project:
 
-Add maven jitpack.io on Project Grable:
+Add maven jitpack.io on Project Gradle:
 ```xml
  allprojects {
     repositories {
