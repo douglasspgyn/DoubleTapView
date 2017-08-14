@@ -4,7 +4,7 @@
 
 A custom view with some cool animation when double tap it and an easy callback implementation.
 
-For now you have a listener, enable and disable double tap and can change the animated view background color, drawable, size and animation.
+You have a listener, enable and disable double tap and can change the animated view animation, background shape, background color, drawable, size.
 
 ![](https://media.giphy.com/media/l41JFwECYpeyPknm0/giphy.gif) 
 
