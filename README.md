@@ -11,30 +11,41 @@ For now you have a listener, enable and disable double tap and can change the an
 ### XML:
 ```xml
 <douglasspgyn.com.github.doubletapview.DoubleTapView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="#ccc"
-                app:animatedViewAnimation="@anim/fade_in_out"
-                app:animatedViewBackgroundColor="#AA55AA"
-                app:animatedViewDrawable="@drawable/ic_android"
-                app:animatedViewMeasure="100dp" />
+        android:id="@+id/doubleTapView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#CCC"
+        app:animatedViewAnimation="@anim/bounce_in_out"
+        app:animatedViewBackground="@drawable/background_view"
+        app:animatedViewBackgroundColor="@color/colorAccent"
+        app:animatedViewDrawable="@drawable/ic_android"
+        app:animatedViewMeasure="100dp"
+        app:backgroundScaleType="centerInside" />
 ```
 
 ### Programmatically:
 ```java
-doubleTapView.setAnimatedViewAnimation(R.anim.fade_in_out);
+doubleTapView.setAnimatedViewAnimation(R.anim.bounce_in_out);
 
-doubleTapView.setAnimatedViewBackgroundColor("#3F51B5");
-doubleTapView.setAnimatedViewBackgroundColor(R.color.colorPrimary);
+doubleTapView.setAnimatedViewBackground(R.drawable.background_view);
+doubleTapView.setAnimatedViewDrawable(getResources().getDrawable(R.drawable.background_view));
+doubleTapView.setAnimatedViewDrawable(ContextCompat.getDrawable(this, R.drawable.background_view));
+
+doubleTapView.setAnimatedViewBackgroundColor("#FF4081");
+doubleTapView.setAnimatedViewBackgroundColor(R.color.colorAccent);
 
 doubleTapView.setAnimatedViewDrawable(R.drawable.ic_android);
 doubleTapView.setAnimatedViewDrawable(getResources().getDrawable(R.drawable.ic_android));
 doubleTapView.setAnimatedViewDrawable(ContextCompat.getDrawable(this, R.drawable.ic_android));
 
 doubleTapView.setAnimatedViewMeasure(100);
+
+doubleTapView.enableDoubleTap();
+doubleTapView.disableDoubleTap();
+doubleTapView.isDoubleTapEnabled()
 ```
 
-### Callback Example:
+### Callback:
 ```java
 doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventListener() {
             @Override
@@ -42,6 +53,10 @@ doubleTapView.setOnDoubleTapEventListener(new DoubleTapView.onDoubleTapEventList
                 Toast.makeText(context, "Double Tap Callback", Toast.LENGTH_SHORT).show();
             }
         });
+        
+
+doubleTapView.getDoubleTapEventListener();
+doubleTapView.removeOnDoubleTapEventListener();
 ```
 
 ### Work with image libraries (like Picasso)
@@ -65,6 +80,6 @@ and de lib dependence on Module Gradle:
 
 ```xml
  dependencies {
-    compile 'com.github.douglasspgyn:DoubleTapView:0.3.0'
+    compile 'com.github.douglasspgyn:DoubleTapView:0.4.0'
  }
 ```
