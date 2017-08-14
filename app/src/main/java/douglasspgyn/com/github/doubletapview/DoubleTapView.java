@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
+import android.support.annotation.AnimRes;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -37,6 +38,8 @@ public class DoubleTapView extends RelativeLayout {
     private String animatedViewBackgroundColor;
     private Drawable animatedViewDrawable;
     private int animatedViewMeasure;
+    @AnimRes
+    private int animatedViewAnimation;
 
     public DoubleTapView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -74,6 +77,7 @@ public class DoubleTapView extends RelativeLayout {
         animatedViewBackgroundColor = typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) != null ? typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) : "#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorAccent));
         animatedViewDrawable = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) : ContextCompat.getDrawable(context, R.drawable.transparent_view);
         animatedViewMeasure = (int) typedArray.getDimension(R.styleable.DoubleTapView_animatedViewMeasure, px);
+        animatedViewAnimation = typedArray.getResourceId(R.styleable.DoubleTapView_animatedViewAnimation, R.anim.bounce_in_out);
 
         typedArray.recycle();
     }
@@ -177,6 +181,16 @@ public class DoubleTapView extends RelativeLayout {
         return animatedView;
     }
 
+
+    /**
+     * Getter used on GestureListener to get animation
+     *
+     * @return the animation that will animate
+     */
+    protected int getAnimatedViewAnimation() {
+        return animatedViewAnimation;
+    }
+
     /**
      * Getter used to change the Double Tap background
      *
@@ -251,6 +265,18 @@ public class DoubleTapView extends RelativeLayout {
         this.px = px;
         animatedViewMeasure = px;
         setAnimatedView();
+        return this;
+    }
+
+
+    /**
+     * Set the animated view animation
+     *
+     * @param animation animation resource
+     * @return current instance of the view
+     */
+    public DoubleTapView setAnimatedViewAnimation(@AnimRes int animation) {
+        this.animatedViewAnimation = animation;
         return this;
     }
 

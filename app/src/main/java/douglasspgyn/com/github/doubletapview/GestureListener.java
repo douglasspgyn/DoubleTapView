@@ -27,7 +27,7 @@ class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        Animation pulse = AnimationUtils.loadAnimation(context, R.anim.bounce_in_out);
+        Animation pulse = AnimationUtils.loadAnimation(context, doubleTapView.getAnimatedViewAnimation());
         doubleTapView.getAnimatedView().startAnimation(pulse);
 
         if (doubleTapView.getDoubleTapEventListener() != null) {
