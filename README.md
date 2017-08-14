@@ -63,7 +63,7 @@ doubleTapView.removeOnDoubleTapEventListener();
 ```java
 Picasso.with(this).load("http://i.imgur.com/DvpvklR.png").into(doubleTapView.getBackgroundImageView());
 ```
-You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample).
+You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample) and learn more on the [Wiki](https://github.com/douglasspgyn/DoubleTapView/wiki).
 
 ## Add to your project:
 
@@ -76,7 +76,7 @@ Add maven jitpack.io on Project Grable:
  }
 ```
 
-and de lib dependence on Module Gradle:
+and de library dependence on Module Gradle:
 
 ```xml
  dependencies {
