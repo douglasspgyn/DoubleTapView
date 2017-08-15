@@ -17,8 +17,9 @@ You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapVie
         android:background="#CCC"
         app:animatedViewAnimation="@anim/bounce_in_out"
         app:animatedViewBackground="@drawable/background_view"
-        app:animatedViewBackgroundColor="@color/colorAccent"
+        app:animatedViewBackgroundColor="@color/colorPrimary"
         app:animatedViewDrawable="@drawable/ic_android"
+        app:animatedViewDrawableColor="@color/colorAccent"
         app:animatedViewMeasure="100dp"
         app:backgroundScaleType="centerInside" />
 ```
@@ -29,9 +30,11 @@ doubleTapView.setAnimatedViewAnimation(R.anim.bounce_in_out);
 
 doubleTapView.setAnimatedViewBackground(R.drawable.background_view);
 
-doubleTapView.setAnimatedViewBackgroundColor(R.color.colorAccent);
+doubleTapView.setAnimatedViewBackgroundColor(R.color.colorPrimary);
 
 doubleTapView.setAnimatedViewDrawable(R.drawable.ic_android);
+
+doubleTapView.setAnimatedViewDrawableColor(R.color.colorAccent);
 
 doubleTapView.setAnimatedViewMeasure(100);
 
