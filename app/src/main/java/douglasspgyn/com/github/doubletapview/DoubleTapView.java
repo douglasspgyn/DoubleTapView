@@ -37,6 +37,7 @@ public class DoubleTapView extends RelativeLayout {
     private Drawable animatedViewBackground;
     private String animatedViewBackgroundColor;
     private Drawable animatedViewDrawable;
+    private String animatedViewDrawableColor;
     private int animatedViewMeasure;
     @AnimRes
     private int animatedViewAnimation;
@@ -74,9 +75,10 @@ public class DoubleTapView extends RelativeLayout {
     private void getTypedArray(TypedArray typedArray) {
         backgroundScaleType = typedArray.getInt(R.styleable.DoubleTapView_backgroundScaleType, 3);
         animatedViewAnimation = typedArray.getResourceId(R.styleable.DoubleTapView_animatedViewAnimation, R.anim.bounce_in_out);
-        animatedViewBackground = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) : ContextCompat.getDrawable(context, R.drawable.background_view);
+        animatedViewBackground = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewBackground) : ContextCompat.getDrawable(context, R.drawable.round_background_view);
         animatedViewBackgroundColor = typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) != null ? typedArray.getString(R.styleable.DoubleTapView_animatedViewBackgroundColor) : "#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorAccent));
         animatedViewDrawable = typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) != null ? typedArray.getDrawable(R.styleable.DoubleTapView_animatedViewDrawable) : ContextCompat.getDrawable(context, R.drawable.transparent_view);
+        animatedViewDrawableColor = typedArray.getString(R.styleable.DoubleTapView_animatedViewDrawableColor) != null ? typedArray.getString(R.styleable.DoubleTapView_animatedViewDrawableColor) : "#" + Integer.toHexString(ContextCompat.getColor(getContext(), R.color.colorWhite));
         animatedViewMeasure = (int) typedArray.getDimension(R.styleable.DoubleTapView_animatedViewMeasure, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, getResources().getDisplayMetrics()));
 
         typedArray.recycle();
@@ -97,6 +99,7 @@ public class DoubleTapView extends RelativeLayout {
         DrawableCompat.setTint(backgroundDrawable.mutate(), Color.parseColor(animatedViewBackgroundColor));
 
         Drawable iconDrawable = animatedViewDrawable;
+        DrawableCompat.setTint(iconDrawable.mutate(), Color.parseColor(animatedViewDrawableColor));
 
         Drawable[] drawables = new Drawable[]{backgroundDrawable, iconDrawable};
 
@@ -208,7 +211,7 @@ public class DoubleTapView extends RelativeLayout {
      * @return current instance of the view
      */
     public DoubleTapView setAnimatedViewBackground(Drawable drawable) {
-        animatedViewBackground = drawable != null ? drawable : ContextCompat.getDrawable(context, R.drawable.background_view);
+        animatedViewBackground = drawable != null ? drawable : ContextCompat.getDrawable(context, R.drawable.round_background_view);
         setAnimatedView();
         return this;
     }
@@ -265,6 +268,34 @@ public class DoubleTapView extends RelativeLayout {
     public DoubleTapView setAnimatedViewDrawable(Drawable drawable) {
         animatedViewDrawable = drawable != null ? drawable : ContextCompat.getDrawable(context, R.drawable.transparent_view);
         setAnimatedView();
+        return this;
+    }
+
+    /**
+     * Set the animated view drawable color
+     *
+     * @param color animated view drawable color
+     * @return current instance of the view
+     */
+    public DoubleTapView setAnimatedViewDrawableColor(int color) {
+        setAnimatedViewDrawableColor("#" + Integer.toHexString(ContextCompat.getColor(context, color)));
+        return this;
+    }
+
+    /**
+     * Set the animated view drawable color
+     *
+     * @param color animated view drawable color
+     * @return current instance of the view
+     */
+    public DoubleTapView setAnimatedViewDrawableColor(String color) {
+        try {
+            Color.parseColor(color);
+            animatedViewDrawableColor = color;
+            setAnimatedView();
+        } catch (IllegalArgumentException iae) {
+            Log.d("setAnimatedBgColor", iae.getMessage());
+        }
         return this;
     }
 

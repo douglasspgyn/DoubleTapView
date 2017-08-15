@@ -15,6 +15,7 @@
         <attr name="animatedViewBackground" format="reference"/>
         <attr name="animatedViewBackgroundColor" format="color"/>
         <attr name="animatedViewDrawable" format="reference"/>
+        <attr name="animatedViewDrawableColor" format="color"/>
         <attr name="animatedViewMeasure" format="dimension"/>
     </declare-styleable>
 </resources>
