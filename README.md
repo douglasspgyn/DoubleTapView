@@ -76,6 +76,6 @@ and de library dependence on Module Gradle:
 
 ```xml
  dependencies {
-    compile 'com.github.douglasspgyn:DoubleTapView:0.4.0'
+    compile 'com.github.douglasspgyn:DoubleTapView:0.5.0'
  }
 ```
