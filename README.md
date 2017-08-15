@@ -78,6 +78,6 @@ and the library dependence on Module Gradle:
 
 ```xml
  dependencies {
-    compile 'com.github.douglasspgyn:DoubleTapView:0.5.0'
+    compile 'com.github.douglasspgyn:DoubleTapView:0.6.0'
  }
 ```
