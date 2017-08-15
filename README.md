@@ -1,8 +1,11 @@
 # Double Tap View
+
+[![platform](https://img.shields.io/badge/plataform-Android-brightgreen.svg)](https://www.android.com)
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![GitHub version](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView.svg)](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView)
 [![JitPack version](https://jitpack.io/v/douglasspgyn/DoubleTapView.svg)](https://jitpack.io/#douglasspgyn/DoubleTapView)
 
-A fully customizable view with a cool animation when double tap it and a simple listener.
+A customizable view with a cool animation when double tap it and a simple listener.
 
 You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample) and learn more on the [Wiki](https://github.com/douglasspgyn/DoubleTapView/wiki).
 
@@ -14,9 +17,8 @@ You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapVie
         android:id="@+id/doubleTapView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="#CCC"
         app:animatedViewAnimation="@anim/bounce_in_out"
-        app:animatedViewBackground="@drawable/background_view"
+        app:animatedViewBackground="@drawable/round_background_view"
         app:animatedViewBackgroundColor="@color/colorPrimary"
         app:animatedViewDrawable="@drawable/ic_android"
         app:animatedViewDrawableColor="@color/colorAccent"
@@ -28,7 +30,7 @@ You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapVie
 ```java
 doubleTapView.setAnimatedViewAnimation(R.anim.bounce_in_out);
 
-doubleTapView.setAnimatedViewBackground(R.drawable.background_view);
+doubleTapView.setAnimatedViewBackground(R.drawable.round_background_view);
 
 doubleTapView.setAnimatedViewBackgroundColor(R.color.colorPrimary);
 
@@ -63,7 +65,7 @@ Picasso.with(this).load("http://i.imgur.com/DvpvklR.png").into(doubleTapView.get
 
 ## Add to your project:
 
-Add maven jitpack.io on Project Gradle:
+You just need to add the Maven Jitpack repository on Project Gradle:
 ```xml
  allprojects {
     repositories {
@@ -72,7 +74,7 @@ Add maven jitpack.io on Project Gradle:
  }
 ```
 
-and de library dependence on Module Gradle:
+and the library dependence on Module Gradle:
 
 ```xml
  dependencies {
