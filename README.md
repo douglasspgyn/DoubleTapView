@@ -15,7 +15,7 @@ You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapVie
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:animatedViewAnimation="@anim/bounce_in_out"
-        app:animatedViewBackground="@drawable/background_view"
+        app:animatedViewBackground="@drawable/round_background_view"
         app:animatedViewBackgroundColor="@color/colorPrimary"
         app:animatedViewDrawable="@drawable/ic_android"
         app:animatedViewDrawableColor="@color/colorAccent"
@@ -27,7 +27,7 @@ You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapVie
 ```java
 doubleTapView.setAnimatedViewAnimation(R.anim.bounce_in_out);
 
-doubleTapView.setAnimatedViewBackground(R.drawable.background_view);
+doubleTapView.setAnimatedViewBackground(R.drawable.round_background_view);
 
 doubleTapView.setAnimatedViewBackgroundColor(R.color.colorPrimary);
 
