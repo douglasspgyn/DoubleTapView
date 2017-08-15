@@ -9,7 +9,7 @@ A customizable view with a cool animation when double tap it and a simple listen
 
 You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample) and learn more on the [Wiki](https://github.com/douglasspgyn/DoubleTapView/wiki).
 
-![](http://i.imgur.com/7reSNWr.gif) 
+![](http://i.imgur.com/2MgD59J.gif) 
 
 ### XML:
 ```xml
