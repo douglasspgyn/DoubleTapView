@@ -6,7 +6,7 @@ A fully customizable view with a cool animation when double tap it and a simple 
 
 You can see a [Sample Project here](https://github.com/douglasspgyn/DoubleTapViewSample) and learn more on the [Wiki](https://github.com/douglasspgyn/DoubleTapView/wiki).
 
-![](https://media.giphy.com/media/l41JFwECYpeyPknm0/giphy.gif) 
+![](http://i.imgur.com/7reSNWr.gif) 
 
 ### XML:
 ```xml
