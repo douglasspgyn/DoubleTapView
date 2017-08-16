@@ -2,6 +2,7 @@
 
 [![platform](https://img.shields.io/badge/plataform-Android-brightgreen.svg)](https://www.android.com)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![Build Status](https://travis-ci.org/douglasspgyn/DoubleTapView.svg?branch=master)](https://travis-ci.org/douglasspgyn/DoubleTapView)
 [![GitHub version](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView.svg)](https://badge.fury.io/gh/douglasspgyn%2FDoubleTapView)
 [![JitPack version](https://jitpack.io/v/douglasspgyn/DoubleTapView.svg)](https://jitpack.io/#douglasspgyn/DoubleTapView)
 
